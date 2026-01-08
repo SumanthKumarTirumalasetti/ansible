@@ -1,0 +1,12 @@
+- name: installing pkgs using loops
+  hosts: node
+  become: yes
+  tasks:
+    - name: install nginx gcc gcp
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nginx
+        - gcc
+        - zip

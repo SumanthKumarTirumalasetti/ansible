@@ -1,0 +1,10 @@
+- name: Testing varaiables_from_task_level
+  hosts: node
+  vars:
+    course: "DevOps from PLAY"
+  tasks:
+    - name: Variables from task leval
+      vars:
+        course: "DevOps from TASK"
+      ansible.builtin.debug:
+        msg: "{{ course }}"

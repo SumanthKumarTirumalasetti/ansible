@@ -1,0 +1,12 @@
+- name: testing loops
+  hosts: node
+  become: yes
+  tasks:
+    - name: install softwares using loop with map variable
+      ansible.builtin.package:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
+      loop:
+        - { name: git , state: present }
+        - { name: gcc , state: removed }
+        - { name: docker , state: removed }

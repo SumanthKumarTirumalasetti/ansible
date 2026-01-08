@@ -1,0 +1,16 @@
+- name: testing loops
+  hosts: node
+  become: yes
+  # vars:
+  #   names:
+  #     - sumanth
+  #     - mounika
+  #     - ishaan
+  tasks:
+    - name: loops
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop:
+        - Sumanth
+        - Mounika
+        - Ishaan

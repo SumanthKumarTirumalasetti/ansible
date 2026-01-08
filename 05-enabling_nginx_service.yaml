@@ -1,0 +1,8 @@
+- name: enabling_nginx_service
+  hosts: node
+  become: yes
+  tasks:
+    - name: enabling_nginx_service on node
+      ansible.builtin.service:
+        name: nginx
+        enabled: true

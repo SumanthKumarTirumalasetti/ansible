@@ -1,0 +1,16 @@
+- name: Testing varibales_from_prompt
+  hosts: node
+  vars:
+    course: "DevOps from PLAY"
+  vars_files:
+    # - course.yaml
+  vars_prompt:
+    - name: course
+      prompt: "Please enter course name"
+      private: false
+  tasks:
+    - name: varibales_from_prompt
+      vars:
+        # course: "DevOps from TASK"
+      ansible.builtin.debug:
+        msg: "{{ course }}"

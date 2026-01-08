@@ -1,0 +1,33 @@
+- name: filters
+  hosts: node
+  become: yes
+  tasks:
+    - name: undefined variable
+      ansible.builtin.debug:
+        msg: "{{ Name | default('sumanth') }}"
+
+    - name: upper
+      vars:
+        envi: bin
+      ansible.builtin.debug:
+        msg: "{{ envi | upper }}"
+
+    - name: lower
+      vars:
+        myvalue: SBIN
+      ansible.builtin.debug:
+        msg: "{{ myvalue | lower }}"
+    
+    - name: lenght
+      vars:
+        mylenght: "sfoisfoshfshfshfesf"
+      ansible.builtin.debug:
+        msg: "{{ mylenght }}"
+      when: mylenght | length > 20
+
+    - name: convert string to list
+      vars:
+        fruits: "apple, banana, orange" #String
+      ansible.builtin.debug:
+        msg: "{{ fruits | split(',') }}"
+      

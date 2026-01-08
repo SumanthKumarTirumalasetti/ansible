@@ -1,0 +1,11 @@
+- name: Testing varaiables_from_files
+  hosts: node
+  vars:
+    course: "DevOps from PLAY"
+  vars_files:
+    - course.yaml
+  tasks:
+    - name: varaiables_from_files
+      ansible.builtin.debug:
+        msg: "{{ course }}"
+  

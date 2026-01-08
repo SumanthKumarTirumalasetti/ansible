@@ -1,0 +1,21 @@
+- name: testing data types
+  hosts: local
+  connection: local
+  vars:
+    course: "Devops" # String
+    duration: 120 # number
+    topics: # list
+      - linux 
+      - ansible
+      - docker
+      - kubernetes
+      - terraform
+    tools: # map
+      cloud: aws
+      contairazation: docker
+      ci: jenkins
+    live: true # boolean
+  tasks:
+    - name: print course information
+      ansible.builtin.debug:
+        msg: "Hello I am learning {{ course }}, duration: {{ duration }}, topics are: {{ topics }}, is it live?: {{ live }}, tools covered are: {{ tools }}"

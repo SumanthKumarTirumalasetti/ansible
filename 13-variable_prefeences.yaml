@@ -1,0 +1,20 @@
+- name: Testing variable_prefeences
+  hosts: local
+  connection: local
+  vars:
+    # COURSE: "DevOps from PLAY"
+  vars_files:
+    # - course.yaml
+  vars_prompt:
+    # - name: COURSE
+    #   prompt: Please enter course name
+    #   private: false
+  tasks:
+    - name: variable preferences
+      vars:
+        # COURSE: "DevOps from TASK"
+      ansible.builtin.debug:
+        msg: "{{ COURSE }}"
+
+
+  

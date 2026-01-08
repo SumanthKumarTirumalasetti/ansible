@@ -1,0 +1,9 @@
+- name: testing variables
+  hosts: node
+  vars:
+    COURSE: "Devops"
+  tasks:
+    - name: testing PLAY level varibales
+      ansible.builtin.debug:
+        msg: "Course is {{ COURSE }}"
+      

@@ -1,0 +1,15 @@
+- name: testing conditions
+  hosts: node
+  become: yes
+  tasks:
+    - name: installing nginx on RHEL
+      ansible.builtin.package:
+        name: nginx
+        state: present
+      when: ansible_facts['os_family'] == "RedHat" 
+
+    - name: installing nginx on Debian
+      ansible.builtin.package:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian"

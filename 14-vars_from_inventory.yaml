@@ -1,0 +1,8 @@
+- name: Testing vars from inventory
+  hosts: node
+  become: yes
+  tasks:
+    - name: vars from inventory
+      ansible.builtin.debug:
+        msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
+  
