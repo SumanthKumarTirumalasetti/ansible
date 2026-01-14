@@ -50,6 +50,7 @@
         ttl: 1
         value: "{{ item.instances[0].private_ip_address }}"
         overwrite : true
+      loop: "{{ ec2_info.results }}"
 
     - name: Create route53 records with public ip
       amazon.aws.route53:
@@ -61,4 +62,5 @@
         value: "{{ item.instances[0].public_ip_address }}"
         overwrite : true
         when: item.item == frontend
+      loop: "{{ ec2_info.results }}"
 
