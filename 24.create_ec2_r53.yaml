@@ -38,6 +38,6 @@
 
     - name: print privateip address
       ansible.builtin.debug:
-        msg: {{ ec2_info.results }}
+        msg: "{{ ec2_info.results }}"
     
 
