@@ -5,7 +5,7 @@
     instance_type: t3.micro
     image_id: ami-0220d79f3f480ecf5
     region: us-east-2
-    vpc_subnet_id: subnet-02fd2ab01a59476a4
+    subnet_id: subnet-02fd2ab01a59476a4
     zone: devopspractice.help
     sg_id: sg-05bdecafe5dc739ee
     instances:
@@ -27,7 +27,7 @@
         instance_type: "{{ instance_type }}"
         image_id: "{{ image_id }}"
         region: "{{ region }}"
-        vpc_subnet_id: "{{ vpc_subnet_id }}"
+        vpc_subnet_id: "{{ subnet_id }}"
         security_group: "{{ sg_id }}"
       loop: "{{ instances }}"
       register: ec2_info
