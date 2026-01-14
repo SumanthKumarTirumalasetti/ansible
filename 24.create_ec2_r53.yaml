@@ -38,7 +38,7 @@
 
     - name: print private address
       ansible.builtin.debug:
-        msg: "{{ ec2_info.instances[0].private_ip_address }}"
+        msg: "{{ item.instances[0].private_ip_address }}"
       loop: "{{ ec2_info.results }}"
     
     - name: Create route53 records
@@ -48,7 +48,7 @@
         record: "{{ item.item.zone }}"
         type: A
         ttl: 1
-        value: "{{ ec2_info.instances[0].private_ip_address }}"
+        value: "{{ item.instances[0].private_ip_address }}"
         overwrite : true
 
     - name: Create route53 records with public ip
@@ -58,7 +58,7 @@
         record: "{{ item.item.zone }}"
         type: A
         ttl: 1
-        value: "{{ ec2_info.instances[0].public_ip_address }}"
+        value: "{{ item.instances[0].public_ip_address }}"
         overwrite : true
         when: item.item == frontend
 
